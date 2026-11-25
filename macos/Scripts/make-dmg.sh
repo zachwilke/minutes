@@ -2,14 +2,16 @@
 # Packages Minutes.app into a signed, compressed DMG for distribution.
 #
 # The DMG contains the app and an Applications alias — the standard drag-to-
-# install layout. When notarization credentials exist (keychain profile
-# Minutes-Notary — the keychain profile keeps its original name; create it with Scripts/setup-notary.sh) the DMG is
-# submitted to Apple's notary service and stapled, so a downloaded copy opens
-# with no Gatekeeper ceremony. Without credentials the step is skipped loudly,
-# and receivers must allow it once in System Settings > Privacy & Security.
+# install layout. When notarization credentials exist the DMG is submitted to
+# Apple's notary service and stapled, so a downloaded copy opens with no
+# Gatekeeper ceremony. Without credentials the step is skipped loudly, and
+# receivers must allow it once in System Settings > Privacy & Security.
+#
+# Credentials live in a keychain profile created by Scripts/setup-notary.sh.
+# Set MINUTES_NOTARY_PROFILE to point at one stored under a different name.
 set -euo pipefail
 
-NOTARY_PROFILE="Minutes-Notary"
+NOTARY_PROFILE="${MINUTES_NOTARY_PROFILE:-Minutes-Notary}"
 
 cd "$(dirname "$0")/.."
 ROOT="$(pwd)"

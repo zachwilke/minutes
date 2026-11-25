@@ -24,7 +24,7 @@ ROOT="$(pwd)"
 APP_NAME="Minutes"
 PRODUCT_NAME="Minutes"
 BUNDLE_ID="com.minutesapp.Minutes"
-VERSION="2.0.2"
+VERSION="3.0.0"
 BUILD_DIR="$ROOT/build"
 APP="$BUILD_DIR/$APP_NAME.app"
 

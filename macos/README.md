@@ -7,11 +7,26 @@ It listens to both sides of a meeting, transcribes on this Mac, lets you take
 your own notes while it runs, and turns the transcript plus those notes into
 structured notes when the meeting ends. No bot joins your calls, no audio leaves
 the machine, and there is no API key or per-token billing. Current version:
-**2.0.2**.
+**3.0.0**.
 
-## What's new in 2.0
+## What's new in 3.0
 
-- **A new name and a new look.** The app is now called Minutes, with a calmer
+The first open-source release, and a breaking one.
+
+- **Now simply Minutes.** The last of the old ITEMinutes naming is gone from the
+  app, the code and the build. The bundle identifier is
+  `com.minutesapp.Minutes`, so **microphone and Audio Recording permissions must
+  be granted once more**; the library moves itself to
+  `~/Library/Application Support/Minutes/` on first launch. See
+  [Upgrading from ITEMinutes](#upgrading-from-iteminutes).
+- **The CRM integration is gone.** It was built around one company's connector
+  and had no place in a general notetaker. The MCP server is now strictly
+  read-only.
+- **MIT licensed**, with the source on GitHub.
+
+## What arrived in 2.0
+
+- **A new name and a new look.** The app became Minutes, with a calmer
   paper-and-ink look modelled on
   Granola: a Home page with **Coming up** from your calendar and every meeting
   by day, an **Ask anything** bar, serif titles, and each meeting as a single

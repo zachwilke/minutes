@@ -17,7 +17,7 @@
 #      3. Run this script and choose 2
 set -euo pipefail
 
-PROFILE="Minutes-Notary"
+PROFILE="${MINUTES_NOTARY_PROFILE:-Minutes-Notary}"
 # Your Apple Developer Team ID — the 10-character string shown next to your team
 # name at https://developer.apple.com/account. Set MINUTES_TEAM_ID to override.
 TEAM_ID="${MINUTES_TEAM_ID:-}"
