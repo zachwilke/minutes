@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # The shared prompt JSON is generated into both platforms' sources. This is
+  # pure Python, so it guards the contract on every PR without needing either
+  # toolchain.
+  prompts:
+    name: Prompts are in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 macos/Scripts/generate-prompts.py --check
+      - run: python3 windows/Scripts/generate-prompts.py --check
+
+  # Minutes.Core is OS-agnostic on purpose: it builds and tests anywhere, which
+  # is how prompt parity with the macOS app gets checked without a Mac.
+  core:
+    name: Windows core
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet test windows/tests/Minutes.Core.Tests/Minutes.Core.Tests.csproj
+
+  # The app targets macOS 27 and needs full Xcode, which GitHub's hosted images
+  # do not offer yet. Set the repository variable MACOS_RUNNER to a runner label
+  # that has them (e.g. a self-hosted Mac) and this job starts running.
+  macos:
+    name: macOS app
+    if: vars.MACOS_RUNNER != ''
+    runs-on: ${{ vars.MACOS_RUNNER }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift build --package-path macos
+      - run: swift test --package-path macos

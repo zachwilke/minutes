@@ -1,0 +1,16 @@
+# SwiftPM build products
+.build/
+.swiftpm/
+
+# Assembled .app bundle and generated icon preview
+build/
+
+# Whisper models are large binaries; fetch them with Scripts/fetch-model.sh.
+# Scoped to the model directories on purpose: a blanket *.bin silently drops
+# the binary test fixtures under windows/tests/.
+Models/*.bin
+*.ggml.bin
+ggml-*.bin
+
+# macOS
+.DS_Store

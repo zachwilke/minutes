@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Deliberately OS-agnostic: this is where the risky logic lives (timeline
+         alignment, resampling, file formats), so it must be testable on any
+         machine rather than only where WASAPI exists. -->
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+  <!-- Refuses to build when SharedPrompts.g.cs no longer matches
+       shared/prompts/*.json, so the two platforms cannot silently drift. -->
+  <!-- On Windows, `python3` is often the Microsoft Store stub that opens the
+       Store instead of running anything; the py launcher installed with
+       Python is the reliable way in. -->
+  <PropertyGroup>
+    <PythonCommand Condition="'$(PythonCommand)' == '' and '$(OS)' == 'Windows_NT'">py -3</PythonCommand>
+    <PythonCommand Condition="'$(PythonCommand)' == ''">python3</PythonCommand>
+  </PropertyGroup>
+  <Target Name="CheckSharedPrompts" BeforeTargets="BeforeBuild">
+    <Exec Command="$(PythonCommand) &quot;$(MSBuildProjectDirectory)/../../Scripts/generate-prompts.py&quot; --check"
+          ContinueOnError="false" />
+  </Target>
+</Project>

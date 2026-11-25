@@ -1,0 +1,23 @@
+{
+  "attendees" : [
+
+  ],
+  "endedAt" : "2026-08-31T17:46:54Z",
+  "id" : "988406FF-B9E1-4B0B-8B80-AD182C97102B",
+  "liveTranscript" : "Test, test, test, one, two, three.  How's it going?  This should be a transcription.",
+  "notes" : "",
+  "segments" : [
+    {
+      "end" : 5.5,
+      "id" : "7C4015D8-ECAF-4F60-A2B1-495521F48470",
+      "speaker" : "me",
+      "start" : 0,
+      "text" : "Test, test, test. One, two, three. How's it going? This should be a transcription."
+    }
+  ],
+  "startedAt" : "2026-08-31T17:46:47Z",
+  "state" : "complete",
+  "summaryMarkdown" : "This transcript contains only a microphone test (\"Test, test, test. One, two, three. How's it going? This should be a transcription.\") with no substantive discussion. There is no meeting content to summarize.\n\n## Summary\nThis was a brief audio\/transcription test, not a substantive meeting. The only recorded speech was a mic check (\"Test, test, test. One, two, three.\") lasting under 10 seconds, with no topics discussed.\n\n## Decisions\nNo decisions were reached.\n\n## Open questions\nNone raised.",
+  "templateID" : "discovery",
+  "title" : "Meeting at 12:46"
+}

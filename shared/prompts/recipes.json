@@ -1,0 +1,52 @@
+{
+  "recipes": [
+    {
+      "id": "follow-up-email",
+      "title": "Draft a follow-up email",
+      "scope": "meeting",
+      "prompt": "Draft a follow-up email to the other people in this meeting. Start with a \"Subject:\" line. Open with one line of thanks, recap what was decided, list the action items with their owners and due dates exactly as agreed, and close with the next step. Plain, warm and professional. Include only commitments the meeting actually made, and leave a placeholder like [name] rather than guessing a name."
+    },
+    {
+      "id": "action-items",
+      "title": "List action items by owner",
+      "scope": "any",
+      "prompt": "List every action item, grouped by owner, with its due date where one was stated and the meeting it came from. Put items with no clear owner under \"Unassigned\". Include only things someone actually committed to."
+    },
+    {
+      "id": "catch-up",
+      "title": "Catch up someone who missed it",
+      "scope": "meeting",
+      "prompt": "Write a short catch-up for a colleague who missed this meeting: what it was about, what was decided, and what they need to know or do. Five sentences or fewer, no headings."
+    },
+    {
+      "id": "prepare-next",
+      "title": "What to prepare for next time",
+      "scope": "meeting",
+      "prompt": "What should I prepare before my next meeting with these people? Base it on open questions, unresolved items and commitments made here, and say which ones are mine."
+    },
+    {
+      "id": "coach-me",
+      "title": "Coach me on this meeting",
+      "scope": "meeting",
+      "prompt": "Give me candid, specific feedback on how I ran or took part in this meeting: what went well and what I could do better, each pointing to a moment in the transcript. Remember that \"You\" in the transcript is me. Three points of each at most."
+    },
+    {
+      "id": "my-commitments",
+      "title": "What did I commit to this week?",
+      "scope": "library",
+      "prompt": "What did I commit to in meetings over the past seven days? List each commitment with the meeting it came from, its date, and its due date if one was stated."
+    },
+    {
+      "id": "open-loops",
+      "title": "Find unresolved items",
+      "scope": "library",
+      "prompt": "Which action items and open questions from my recent meetings look unresolved — raised but never confirmed done in a later meeting? Group them by meeting, newest first."
+    },
+    {
+      "id": "meeting-brief",
+      "title": "Brief me for this meeting",
+      "scope": "upcoming",
+      "prompt": "Brief me for my upcoming meeting \"{{title}}\" at {{start}}{{attendees}}. From my past meetings: when I last met these people or discussed this, what was decided, what is still open, and what I committed to that they may ask about. Name each source meeting and its date. If the library has nothing relevant, say so in one line rather than padding."
+    }
+  ]
+}

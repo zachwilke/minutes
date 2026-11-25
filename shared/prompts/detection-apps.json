@@ -1,0 +1,139 @@
+{
+  "apps" : [
+    {
+      "ambiguous" : false,
+      "name" : "Zoom",
+      "prefix" : "us.zoom"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Microsoft Teams",
+      "prefix" : "com.microsoft.teams"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Skype for Business",
+      "prefix" : "com.microsoft.SkypeForBusiness"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Skype",
+      "prefix" : "com.skype"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Webex",
+      "prefix" : "com.cisco.webex"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Webex",
+      "prefix" : "com.webex"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Slack",
+      "prefix" : "com.tinyspeck.slackmacgap"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "FaceTime",
+      "prefix" : "com.apple.FaceTime"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "RingCentral",
+      "prefix" : "com.ringcentral"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "GoTo Meeting",
+      "prefix" : "com.logmein.GoToMeeting"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "GoTo",
+      "prefix" : "com.goto"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Discord",
+      "prefix" : "com.discordapp"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Discord",
+      "prefix" : "com.hnc.Discord"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "BlueJeans",
+      "prefix" : "com.bluejeans"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Amazon Chime",
+      "prefix" : "com.amazonaws.chime"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Jitsi Meet",
+      "prefix" : "net.jitsi"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Dialpad",
+      "prefix" : "com.dialpad"
+    },
+    {
+      "ambiguous" : false,
+      "name" : "Zoom",
+      "prefix" : "com.zoom"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Spark",
+      "prefix" : "com.readdle.spark"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Chrome",
+      "prefix" : "com.google.Chrome"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Safari",
+      "prefix" : "com.apple.Safari"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Edge",
+      "prefix" : "com.microsoft.edgemac"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Brave",
+      "prefix" : "com.brave.Browser"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Arc",
+      "prefix" : "company.thebrowser.Browser"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Dia",
+      "prefix" : "company.thebrowser.dia"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Firefox",
+      "prefix" : "org.mozilla.firefox"
+    },
+    {
+      "ambiguous" : true,
+      "name" : "Vivaldi",
+      "prefix" : "com.vivaldi.Vivaldi"
+    }
+  ]
+}

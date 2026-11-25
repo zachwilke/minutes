@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Required under the Hardened Runtime. Without this the system refuses
+         microphone access outright and never shows a prompt, so the app never
+         even appears in System Settings > Privacy & Security > Microphone.
+         This gates the Core Audio process tap (system audio) as well. -->
+    <key>com.apple.security.device.audio-input</key>
+    <true/>
+    <key>com.apple.security.device.microphone</key>
+    <true/>
+
+    <!-- Hardened Runtime resource access, like audio-input above: without it
+         calendar access is refused with no prompt, and recordings never pick
+         up the meeting's name. Calendar use is off by default. -->
+    <key>com.apple.security.personal-information.calendars</key>
+    <true/>
+
+    <!-- Not sandboxed: the app shells out to whisper-cli and claude, and reads
+         and writes its own library under Application Support. -->
+    <key>com.apple.security.app-sandbox</key>
+    <false/>
+</dict>
+</plist>

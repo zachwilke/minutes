@@ -1,0 +1,398 @@
+===== SUMMARY SYSTEM PROMPT =====
+You write meeting notes from imperfect machine transcripts. You are precise about what was actually said and you never invent specifics — names, numbers, dates, or commitments — that are not supported by the transcript. When the transcript is unclear or the audio evidently dropped words, say so briefly rather than smoothing over the gap. Output GitHub-flavored Markdown only, with no sign-off and no restatement of these instructions.
+
+Begin the response with a Markdown heading. Never write a sentence of framing before the first heading — if the recording holds nothing worth summarizing, or the audio is too poor to work with, say so inside the first section rather than above it.
+
+===== SUMMARY TEMPLATE general =====
+name: General meeting
+blurb: Balanced summary, decisions, and action items.
+instructions:
+Produce these sections, omitting any that genuinely have no content:
+
+## Summary
+Three to six sentences covering what this meeting was actually about and where it landed.
+
+## Key points
+Bullets grouped by topic. Attribute meaningful positions to whoever held them.
+
+## Decisions
+Only things actually decided. If nothing was decided, say "No decisions were reached."
+
+## Action items
+A markdown table with columns: Action | Owner | Due. Use "Unassigned" or "Not stated" rather than guessing.
+
+## Open questions
+Anything raised and left unresolved.
+
+===== SUMMARY TEMPLATE client-call =====
+name: Client call (MSP)
+blurb: Issues, affected systems, commitments, and ticket-worthy items.
+instructions:
+This is a managed-services call with a client. Produce:
+
+## Summary
+What the client needed and what was agreed, in a few sentences.
+
+## Issues raised
+For each: the symptom, the affected system or site, and stated impact/urgency.
+
+## Commitments we made
+Explicit promises made to the client, with any dates mentioned.
+
+## Action items
+A markdown table: Action | Owner | Due.
+
+## Ticket-worthy items
+Discrete pieces of work that should become tickets. One line each, phrased as a ticket title
+followed by a one-sentence description.
+
+## Client sentiment
+One or two sentences on how the client seemed — frustrated, satisfied, hesitant — and why.
+Say "Not enough signal" if the transcript doesn't support a read.
+
+===== SUMMARY TEMPLATE discovery =====
+name: Discovery / sales call
+blurb: Requirements, stakeholders, objections, and next steps.
+instructions:
+This is a discovery or sales conversation. Produce:
+
+## Summary
+The opportunity in a few sentences.
+
+## Their environment
+Current systems, scale, and anything stated about how things work today.
+
+## Requirements and priorities
+What they said they need, separating explicit must-haves from nice-to-haves.
+
+## Stakeholders
+Who was mentioned, and their apparent role or influence.
+
+## Budget and timeline
+Only what was actually said. Write "Not discussed" where it wasn't.
+
+## Objections and risks
+Concerns they raised, and anything that could stall this.
+
+## Next steps
+A markdown table: Action | Owner | Due.
+
+===== SUMMARY TEMPLATE troubleshooting =====
+name: Technical troubleshooting
+blurb: Symptom, environment, what was tried, root cause, resolution.
+instructions:
+This is a technical troubleshooting session. Produce:
+
+## Problem
+The symptom as precisely as the transcript allows, including error text if quoted.
+
+## Environment
+Systems, versions, hosts, and topology mentioned.
+
+## What was tried
+An ordered list of steps attempted and the outcome of each.
+
+## Root cause
+The cause if it was actually established. If it wasn't, write "Not established" and list
+the leading hypotheses.
+
+## Resolution / current state
+Where things stand as of the end of the call.
+
+## Follow-up
+A markdown table: Action | Owner | Due.
+
+## Worth documenting
+If this contains a reusable fix, draft a two-to-four sentence knowledge-base note. Otherwise
+write "Nothing reusable."
+
+===== SUMMARY TEMPLATE one-on-one =====
+name: One-on-one
+blurb: Topics, feedback, growth, and commitments — kept discreet.
+instructions:
+This is a one-on-one. Keep it factual and avoid editorialising about anyone's character.
+
+## Topics covered
+Bullets.
+
+## Feedback exchanged
+Feedback given or received, attributed to whoever gave it.
+
+## Blockers and support needed
+What they said is in the way, and what help was asked for.
+
+## Commitments
+A markdown table: Action | Owner | Due.
+
+## For next time
+Threads worth picking up in the next one-on-one.
+
+===== SUMMARY TEMPLATE standup =====
+name: Standup
+blurb: Per-person progress, plans, and blockers.
+instructions:
+This is a standup. Produce:
+
+## Per person
+A subsection per participant with three short bullets: Progress, Next, Blockers.
+Use the speaker labels available; if a person can't be identified, group under "Unattributed".
+
+## Blockers needing attention
+Consolidated list of anything blocking someone, with who could unblock it.
+
+## Action items
+A markdown table: Action | Owner | Due.
+
+===== ASSEMBLED SUMMARY PROMPT =====
+# Meeting to summarize
+
+## Metadata
+- Title: Acme quarterly review
+- Date: Monday 5 January 2026, 14:30
+- Duration: 32m 07s
+- Platform: Microsoft Teams
+- Invited: Dana Whitfield, Sam Okafor
+
+## My notes
+These are the notes I typed during the meeting. They are terse and may be shorthand, but they reflect what I considered important. Treat them as authoritative on priorities and on the spelling of names and product terms. Expand and organise them using the transcript as evidence — do not discard my framing, and do not contradict a note unless the transcript clearly shows I mistyped.
+
+```
+- renewal timing
+- they want SSO before the new site opens
+```
+
+## Transcript
+Produced by on-device speech recognition, so expect occasional word errors, especially for names, acronyms, and technical terms. Speaker labels come from which audio source was louder, not from voice identification: "You" is me on the microphone, "Them" is everyone joining through the computer's audio. "Speaker" means the two overlapped and attribution is uncertain. Treat labels as a strong hint rather than ground truth, and do not attribute a specific named person to a label unless the conversation itself makes it clear. The microphone wins ties: a quiet voice from the call is often labelled "You" while I was not speaking, so when the conversation shows someone else talking — answering a question put to them by name, giving their own update — attribute it to them, using the people under Metadata. Never say someone's part "was not captured" only because no line is labelled "Them".
+
+```
+[00:00] Them: We are happy to renew, but we need single sign-on first.
+[00:06] You: Understood. We can schedule that for the week of the ninth.
+```
+
+## What to produce
+This is a managed-services call with a client. Produce:
+
+## Summary
+What the client needed and what was agreed, in a few sentences.
+
+## Issues raised
+For each: the symptom, the affected system or site, and stated impact/urgency.
+
+## Commitments we made
+Explicit promises made to the client, with any dates mentioned.
+
+## Action items
+A markdown table: Action | Owner | Due.
+
+## Ticket-worthy items
+Discrete pieces of work that should become tickets. One line each, phrased as a ticket title
+followed by a one-sentence description.
+
+## Client sentiment
+One or two sentences on how the client seemed — frustrated, satisfied, hesitant — and why.
+Say "Not enough signal" if the transcript doesn't support a read.
+
+Write it in the same language the meeting was conducted in. Use "Not stated" rather than guessing at any owner, date, or figure that was never mentioned.
+
+===== ASSEMBLED SUMMARY PROMPT (no notes) =====
+# Meeting to summarize
+
+## Metadata
+- Title: Acme quarterly review
+- Date: Monday 5 January 2026, 14:30
+- Duration: 32m 07s
+- Platform: Microsoft Teams
+- Invited: Dana Whitfield, Sam Okafor
+
+## My notes
+(None taken.)
+
+## Transcript
+Produced by on-device speech recognition, so expect occasional word errors, especially for names, acronyms, and technical terms. Speaker labels come from which audio source was louder, not from voice identification: "You" is me on the microphone, "Them" is everyone joining through the computer's audio. "Speaker" means the two overlapped and attribution is uncertain. Treat labels as a strong hint rather than ground truth, and do not attribute a specific named person to a label unless the conversation itself makes it clear. The microphone wins ties: a quiet voice from the call is often labelled "You" while I was not speaking, so when the conversation shows someone else talking — answering a question put to them by name, giving their own update — attribute it to them, using the people under Metadata. Never say someone's part "was not captured" only because no line is labelled "Them".
+
+```
+[00:00] Them: We are happy to renew, but we need single sign-on first.
+[00:06] You: Understood. We can schedule that for the week of the ninth.
+```
+
+## What to produce
+Produce these sections, omitting any that genuinely have no content:
+
+## Summary
+Three to six sentences covering what this meeting was actually about and where it landed.
+
+## Key points
+Bullets grouped by topic. Attribute meaningful positions to whoever held them.
+
+## Decisions
+Only things actually decided. If nothing was decided, say "No decisions were reached."
+
+## Action items
+A markdown table with columns: Action | Owner | Due. Use "Unassigned" or "Not stated" rather than guessing.
+
+## Open questions
+Anything raised and left unresolved.
+
+Write it in the same language the meeting was conducted in. Use "Not stated" rather than guessing at any owner, date, or figure that was never mentioned.
+
+===== MY NOTES (containing a fence) =====
+These are the notes I typed during the meeting. They are terse and may be shorthand, but they reflect what I considered important. Treat them as authoritative on priorities and on the spelling of names and product terms. Expand and organise them using the transcript as evidence — do not discard my framing, and do not contradict a note unless the transcript clearly shows I mistyped.
+
+````
+Paste from the runbook:
+```
+net use Z: \\fs01\share
+```
+````
+
+===== WHAT TO PRODUCE (notes in Spanish) =====
+Produce these sections, omitting any that genuinely have no content:
+
+## Summary
+Three to six sentences covering what this meeting was actually about and where it landed.
+
+## Key points
+Bullets grouped by topic. Attribute meaningful positions to whoever held them.
+
+## Decisions
+Only things actually decided. If nothing was decided, say "No decisions were reached."
+
+## Action items
+A markdown table with columns: Action | Owner | Due. Use "Unassigned" or "Not stated" rather than guessing.
+
+## Open questions
+Anything raised and left unresolved.
+
+Write it in the same language the meeting was conducted in. Use "Not stated" rather than guessing at any owner, date, or figure that was never mentioned.
+
+Write the notes in Spanish, whatever language the meeting was held in. Keep names, product terms and quotations as they were spoken.
+
+===== TRANSCRIPT (named speakers) =====
+[00:00] Dana: We are happy to renew, but we need single sign-on first.
+[00:06] You: Understood. We can schedule that for the week of the ninth.
+
+===== CHAT SYSTEM PROMPT =====
+You answer questions about the user's own past meetings, from recordings made on their Mac. You are given an index of every meeting in their library, the notes for the most relevant ones, and sometimes full transcripts.
+
+Ground every claim in that material. When you state something specific — a date, a commitment, a figure, who said what — make clear which meeting it came from, by title and date. Never invent a meeting, a participant, or a detail that is not there.
+
+Transcripts come from speech recognition and contain errors, especially in names, acronyms and technical terms. Speaker labels are derived from which audio source was louder — "You" is the user's microphone, "Them" is everyone joining through the computer's audio — so they indicate sides of a conversation rather than identified people. Do not attribute a line to a named person unless the conversation itself makes that clear.
+
+If the answer is not in the material, say so plainly and say what would be needed. If the index shows a meeting that looks relevant but whose detail was not included, name it and say its detail was not loaded. A short, direct answer is better than a thorough one that pads.
+
+Reply in GitHub-flavored Markdown. Keep it conversational — this is a chat, not a report, so no headings unless the answer genuinely needs sections.
+
+===== CHAT CONTEXT =====
+## Every meeting in the library (2)
+Newest first. Dates are local time.
+
+- 2026-01-05 14:30 · 32m 07s · Acme quarterly review · Microsoft Teams · invited: Dana Whitfield, Sam Okafor
+    Acme confirmed the renewal and asked for SSO.
+- 2026-01-04 14:30 · 9m 00s · Internal standup
+    Nothing blocking.
+
+## Notes from these meetings
+
+### Acme quarterly review — 2026-01-05 14:30 (Notes)
+
+## Summary
+Acme confirmed the renewal and asked for SSO.
+
+
+### Internal standup — 2026-01-04 14:30 (Notes)
+
+## Per person
+Nothing blocking.
+
+
+## Full transcripts
+
+### Acme quarterly review — 2026-01-05 14:30 (Transcript)
+
+[00:00] Them: We are happy to renew, but we need single sign-on first.
+[00:06] You: Understood. We can schedule that for the week of the ninth.
+
+### Internal standup — 2026-01-04 14:30 (Transcript)
+
+[00:00] You: Nothing blocking on my side today.
+
+===== ASSEMBLED CHAT PROMPT =====
+# The user's meeting library
+
+## Every meeting in the library (2)
+Newest first. Dates are local time.
+
+- 2026-01-05 14:30 · 32m 07s · Acme quarterly review · Microsoft Teams · invited: Dana Whitfield, Sam Okafor
+    Acme confirmed the renewal and asked for SSO.
+- 2026-01-04 14:30 · 9m 00s · Internal standup
+    Nothing blocking.
+
+## Notes from these meetings
+
+### Acme quarterly review — 2026-01-05 14:30 (Notes)
+
+## Summary
+Acme confirmed the renewal and asked for SSO.
+
+
+### Internal standup — 2026-01-04 14:30 (Notes)
+
+## Per person
+Nothing blocking.
+
+
+## Full transcripts
+
+### Acme quarterly review — 2026-01-05 14:30 (Transcript)
+
+[00:00] Them: We are happy to renew, but we need single sign-on first.
+[00:06] You: Understood. We can schedule that for the week of the ninth.
+
+### Internal standup — 2026-01-04 14:30 (Transcript)
+
+[00:00] You: Nothing blocking on my side today.
+
+# Conversation so far
+User: What did we agree with Acme?
+
+You: They confirmed the renewal.
+
+# The user's question
+And when is the SSO work due?
+
+===== CHAT CONTEXT (asked about one meeting) =====
+## Every meeting in the library (2)
+Newest first. Dates are local time.
+
+- 2026-01-05 14:30 · 32m 07s · Acme quarterly review · Microsoft Teams · invited: Dana Whitfield, Sam Okafor
+    Acme confirmed the renewal and asked for SSO.
+- 2026-01-04 14:30 · 9m 00s · Internal standup
+    Nothing blocking.
+
+## The meeting this question is about
+
+### Internal standup — 2026-01-04 14:30 (Notes)
+
+## Per person
+Nothing blocking.
+
+
+### Internal standup — 2026-01-04 14:30 (Transcript)
+
+[00:00] You: Nothing blocking on my side today.
+
+## Notes from these meetings
+
+### Acme quarterly review — 2026-01-05 14:30 (Notes)
+
+## Summary
+Acme confirmed the renewal and asked for SSO.
+
+
+## Full transcripts
+
+### Acme quarterly review — 2026-01-05 14:30 (Transcript)
+
+[00:00] Them: We are happy to renew, but we need single sign-on first.
+[00:06] You: Understood. We can schedule that for the week of the ninth.
+
